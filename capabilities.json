@@ -1,0 +1,257 @@
+{
+    "dataRoles": [
+        {
+            "name": "Category",
+            "kind": "Grouping",
+            "displayName": "Category"
+        },
+        {
+            "name": "Value",
+            "kind": "Measure",
+            "displayName": "Value",
+            "requiredTypes": [
+                {
+                    "numeric": true
+                }
+            ]
+        }
+    ],
+    "objects": {
+        "colorSelector": {
+            "displayName": "Data colors",
+            "properties": {
+                "fill": {
+                    "displayName": "0",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "general": {
+            "displayName": "General",
+            "properties": {
+                "borderColor": {
+                    "displayName": "Border color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ComponentShape": {
+            "displayName": "Shape",
+            "description": "Select shape of the components",
+            "properties": {
+                "shape": {
+                    "displayName": "Box shape",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "square",
+                                "displayName": "Square"
+                            },
+                            {
+                                "value": "rectangle",
+                                "displayName": "Rectangle"
+                            }
+                        ]
+                    }
+                },
+                "Bricks": {
+                    "displayName": "Brick type",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "Box",
+                                "displayName": "Block"
+                            },
+                            {
+                                "value": "circle",
+                                "displayName": "Dot"
+                            },
+                            {
+                                "value": "Diamond",
+                                "displayName": "Diamond"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "legend": {
+            "displayName": "Legend",
+            "description": "Display legend options",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "position": {
+                    "displayName": "Position",
+                    "description": "Select location for the legend",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "Top",
+                                "displayName": "Top"
+                            },
+                            {
+                                "value": "Bottom",
+                                "displayName": "Bottom"
+                            },
+                            {
+                                "value": "Right",
+                                "displayName": "Right"
+                            },
+                            {
+                                "value": "Left",
+                                "displayName": "Left"
+                            }
+                        ]
+                    }
+                },
+                "showTitle": {
+                    "displayName": "Title",
+                    "description": "Display title for legend",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "titleText": {
+                    "displayName": "Legend name",
+                    "description": "Title text",
+                    "type": {
+                        "text": true
+                    },
+                    "suppressFormatPainterCopy": true
+                },
+                "labelColor": {
+                    "displayName": "Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Font size",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                }
+            }
+        },
+        "gradientValue": {
+            "displayName": "Gradient",
+            "description": "Gradient Options",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+        "AnimationType": {
+            "displayName": "Animations",
+            "description": "Display Animations",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "sqDot": {
+                    "displayName": "Animation",
+                    "description": "Animation with dot Square",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "Animation 1",
+                                "displayName": "Stretch Right"
+                            },
+                            {
+                                "value": "Animation 2",
+                                "displayName": "Corner Stretch"
+                            },
+                            {
+                                "value": "Animation 3",
+                                "displayName": "Grow and Turn"
+                            },
+                            {
+                                "value": "Animation 4",
+                                "displayName": "Swivel Diagonal"
+                            },
+                            {
+                                "value": "Animation 5",
+                                "displayName": "Stack Left"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "tooltips": {
+        "supportedTypes": {
+            "default": true,
+            "canvas": true
+        },
+        "roles": [
+            "tooltips"
+        ]
+    },
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "Category": {
+                        "max": 1
+                    },
+                    "Value": {
+                        "max": 1
+                    }
+                }
+            ],
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "Category"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": {}
+                    }
+                },
+                "values": {
+                    "select": [
+                        {
+                            "bind": {
+                                "to": "Value"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "sorting": {
+        "default": {}
+    }
+}
