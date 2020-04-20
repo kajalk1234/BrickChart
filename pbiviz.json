@@ -4,7 +4,7 @@
     "displayName": "Brick Chart by MAQ Software",
     "guid": "BrickChart1454871868044",
     "visualClassName": "visual",
-    "version": "3.3.0",
+    "version": "3.3.1",
     "description": "Brick Chart by MAQ Software allows users to display a percentage breakdown of a category in an alternative format to a donut or pie chart. This visual is useful for showing percentages or positions occupied, such as seats in a legislature. It is also useful for comparing each portion of a category to the whole. It can be viewed either in a square or rectangular format with options to have different types of brick shapes. Animations available for visual effects.  ",
     "supportUrl": "https://github.com/maqsoftware/PowerBI-visuals/issues",
     "gitHubUrl": "https://github.com/maqsoftware/PowerBI-visuals/"

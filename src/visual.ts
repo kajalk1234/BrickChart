@@ -147,7 +147,6 @@ module powerbi.extensibility.visual {
         if (categoryObjects) {
             const categoryObject: DataViewObject = categoryObjects[index];
             if (categoryObject) {
-                // tslint:disable-next-line:no-any
                 let object: any;
                 object = categoryObject[objectName];
                 if (object) {
@@ -179,9 +178,7 @@ module powerbi.extensibility.visual {
         public errorDiv: d3.Selection<SVGElement>;
         private gradient: d3.Selection<SVGElement>;
         public svgs: {};
-        // tslint:disable-next-line:no-any
         public zoom: any;
-        // tslint:disable-next-line:no-any
         public toolTipInfo: any = {};
         public myStyles: d3.Selection<SVGElement>;
         public randColor: [string];
@@ -242,7 +239,6 @@ module powerbi.extensibility.visual {
                 .attr('height', 200);
         }
 
-        // tslint:disable-next-line:no-any
         public static NUMBERWITHCOMMAS(num: any): string {
             let numeric: number;
             numeric = parseInt(num, 10);
@@ -297,7 +293,6 @@ module powerbi.extensibility.visual {
             }
             opacity = opacity || 0;
             let rgb: string = '#';
-            // tslint:disable-next-line:no-any
             let c: any;
             let iCounter: number;
             for (iCounter = 0; iCounter < 3; iCounter++) {
@@ -310,7 +305,6 @@ module powerbi.extensibility.visual {
         }
 
         // Calculate and return the sums
-        // tslint:disable-next-line:no-any
         public calculateSum(dataSet: any): number {
             let sum: number;
             let index: number;
@@ -331,9 +325,7 @@ module powerbi.extensibility.visual {
             data = visual.GETDEFAULTDATA();
             data.dataPoints = [];
             if (dataView && dataView.categorical && dataView.categorical.categories && dataView.categorical.values) {
-                // tslint:disable-next-line:no-any
                 const legends: any = dataView.categorical.categories[0].values;
-                // tslint:disable-next-line:no-any
                 const values: any = dataView.categorical.values[0].values;
                 //creating colorePalette object
                 const colorPalette: powerbi.extensibility.IColorPalette = host.colorPalette;
@@ -342,9 +334,7 @@ module powerbi.extensibility.visual {
                 let dataSet: {};
                 dataSet = {};
                 // add random color
-                // tslint:disable-next-line:no-any
                 const categorical: any = dataView.categorical;
-                // tslint:disable-next-line:no-any
                 const category: any = categorical.categories[0];
                 let formatter: IValueFormatter;
                 formatter = valueFormatter.create({ format: 'dddd\, MMMM %d\, yyyy' });
@@ -460,7 +450,7 @@ module powerbi.extensibility.visual {
             };
         }
 
-        // tslint:disable-next-line:no-any
+      
         public updateZoom(options: any): void {
             let WIDTH: number;
             let HEIGHT: number;
@@ -1062,9 +1052,9 @@ module powerbi.extensibility.visual {
                 return;
             }
         }
-        // Update is called for data updates, resizes & formatting changes //
-        // tslint:disable-next-line:cyclomatic-complexity
+        // Update is called for data updates, resizes & formatting changes
         public update(options: VisualUpdateOptions): void {
+            try {
             this.events.renderingStarted(options);
             d3.selectAll('.matrix svg > *').remove();
             d3.selectAll('.legend #legendGroup').selectAll('*').remove();
@@ -1161,6 +1151,7 @@ module powerbi.extensibility.visual {
                 }
             });
             this.events.renderingFinished(options);
+            } catch (exeption) {this.events.renderingFailed(options, exeption); }
         }
 
         private addLegendSelection(): void {
